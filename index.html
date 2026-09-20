@@ -1,0 +1,819 @@
+<!doctype html>
+<html lang="ru" data-theme="light">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>drift — путешествия без спешки</title>
+    <meta
+      name="description"
+      content="Небольшие группы, местные проводники и медленные маршруты по горам, морю и самым удалённым местам.">
+    <meta name="color-scheme" content="light dark">
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+    <script>
+      (function () {
+        var theme = "light";
+        try {
+          var saved = localStorage.getItem("drift-theme");
+          theme =
+            saved === "dark" || saved === "light"
+              ? saved
+              : matchMedia("(prefers-color-scheme: dark)").matches
+                ? "dark"
+                : "light";
+        } catch (e) {}
+        document.documentElement.setAttribute("data-theme", theme);
+      })();
+    </script>
+    <link
+      rel="preload"
+      href="assets/fonts/unbounded-cyrillic-wght-normal.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin>
+    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/pages.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="site-header__bar">
+        <a class="logo" href="index.html">
+          <svg viewBox="0 0 32 32" aria-hidden="true">
+            <circle cx="16" cy="16" r="15" fill="var(--accent)" />
+            <path d="M6 22l6-9 4 5 3-4 7 8z" fill="var(--accent-ink)" />
+            <circle cx="21.5" cy="10" r="2" fill="var(--accent-ink)" />
+          </svg>
+          <span>drift</span>
+        </a>
+        <nav class="nav" id="site-nav" aria-label="Основная навигация">
+          <ul class="nav__list">
+            <li><a class="nav__link" href="#routes">Маршруты</a></li>
+            <li><a class="nav__link" href="#about">О нас</a></li>
+            <li><a class="nav__link" href="#reviews">Отзывы</a></li>
+            <li><a class="nav__link" href="catalog.html">Каталог</a></li>
+          </ul>
+        </nav>
+        <div class="site-header__actions">
+          <button
+            class="theme-toggle"
+            type="button"
+            role="switch"
+            aria-checked="false"
+            aria-label="Тёмная тема"
+          >
+            <span class="theme-toggle__thumb"></span>
+            <svg
+              class="theme-toggle__sun"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <circle cx="12" cy="12" r="4" />
+              <path
+                d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"
+              />
+            </svg>
+            <svg
+              class="theme-toggle__moon"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+            </svg>
+          </button>
+          <button
+            class="burger"
+            type="button"
+            aria-label="Открыть меню"
+            aria-expanded="false"
+            aria-controls="site-nav"
+          >
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero__bg" aria-hidden="true"></div>
+        <div class="container hero__inner">
+          <div class="hero__panel glass">
+            <p class="hero__note">Малые группы до восьми человек</p>
+            <h1 class="hero__title" id="hero-title">Путешествуйте медленно</h1>
+            <p class="hero__lead">
+              Собираем маршруты на шесть — четырнадцать дней: местные
+              проводники, ночёвки без спешки и один большой вид каждый день.
+            </p>
+            <div class="hero__actions">
+              <a class="btn btn--primary" href="catalog.html"
+                >Выбрать маршрут</a
+              >
+              <a class="btn btn--glass" href="#about">Как проходит день</a>
+            </div>
+          </div>
+          <div class="hero__aside">
+            <p class="note note--hero">
+              ближайший, успеваете!<svg
+                viewBox="0 0 60 50"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M4 6c18-4 40 2 46 30" />
+                <path d="M42 30l8 8 6-10" />
+              </svg>
+            </p>
+            <a
+              class="ticket glass"
+              href="catalog.html"
+              aria-label="Ближайший выезд: Лофотены, 5 октября, осталось 4 места"
+            >
+              <span class="ticket__main">
+                <span class="ticket__label">Ближайший выезд</span>
+                <span class="ticket__title">Лофотены</span>
+                <span class="ticket__meta"
+                  >Норвегия, 5 октября<br>осталось 4 места</span
+                >
+              </span>
+              <span class="ticket__stub" aria-hidden="true">
+                <span class="ticket__code">LOF</span>
+                <span class="ticket__geo">68.2° N</span>
+              </span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="section routes"
+        id="routes"
+        aria-labelledby="routes-title"
+      >
+        <div class="container">
+          <div class="section__head">
+            <div>
+              <h2 id="routes-title">Маршруты сезона</h2>
+              <p class="section__lead">
+                Пять выездов, на которые ещё есть места.
+              </p>
+            </div>
+            <div class="slider__controls">
+              <button
+                class="icon-btn"
+                type="button"
+                data-slider-prev
+                aria-label="Предыдущий маршрут"
+              >
+                <svg
+                  class=""
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <polyline points="15 18 9 12 15 6" />
+                </svg>
+              </button>
+              <button
+                class="icon-btn"
+                type="button"
+                data-slider-next
+                aria-label="Следующий маршрут"
+              >
+                <svg
+                  class=""
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <polyline points="9 18 15 12 9 6" />
+                </svg>
+              </button>
+            </div>
+          </div>
+          <div
+            class="slider"
+            data-slider
+            role="region"
+            aria-roledescription="карусель"
+            aria-label="Маршруты сезона"
+          >
+            <div class="slider__viewport">
+              <ul class="slider__track">
+                <li class="slide" aria-label="1 из 5">
+                  <img class="slide__img" src="assets/img/slide-1.webp" alt="Северное сияние над тёмными хребтами и озером" width="1600" height="900">
+                  <div class="slide__caption glass">
+                    <h3>Северное сияние без толп</h3>
+                    <p class="slide__text">
+                      Кольцевая дорога, ледниковые лагуны и вечерние выезды за
+                      сиянием. Осталось три места на октябрь.
+                    </p>
+                    <div class="slide__foot">
+                      <span class="slide__price">от 2 290 € · 8 дней</span
+                      ><a class="btn btn--primary btn--sm" href="catalog.html"
+                        >В каталог</a
+                      >
+                    </div>
+                  </div>
+                </li>
+                <li class="slide" aria-label="2 из 5">
+                  <img class="slide__img" src="assets/img/slide-2.webp" alt="Белые дома на утёсе над синим морем на закате" width="1600" height="900" loading="lazy">
+                  <div class="slide__caption glass">
+                    <h3>Закат над кальдерой</h3>
+                    <p class="slide__text">
+                      Шесть дней в тихих деревнях острова, дегустации на
+                      вулканической почве и парусник вокруг кальдеры.
+                    </p>
+                    <div class="slide__foot">
+                      <span class="slide__price">от 1 190 € · 6 дней</span
+                      ><a class="btn btn--primary btn--sm" href="catalog.html"
+                        >В каталог</a
+                      >
+                    </div>
+                  </div>
+                </li>
+                <li class="slide" aria-label="3 из 5">
+                  <img class="slide__img" src="assets/img/slide-3.webp" alt="Розовый рассвет над острыми хребтами Доломитов" width="1600" height="900" loading="lazy">
+                  <div class="slide__caption glass">
+                    <h3>Розовые скалы Доломитов</h3>
+                    <p class="slide__text">
+                      Идём от приюта к приюту вокруг Трёх Зубцов Лаваредо. Багаж
+                      едет на машине.
+                    </p>
+                    <div class="slide__foot">
+                      <span class="slide__price">от 1 290 € · 7 дней</span
+                      ><a class="btn btn--primary btn--sm" href="catalog.html"
+                        >В каталог</a
+                      >
+                    </div>
+                  </div>
+                </li>
+                <li class="slide" aria-label="4 из 5">
+                  <img class="slide__img" src="assets/img/slide-4.webp" alt="Золотые дюны Сахары на закате" width="1600" height="900" loading="lazy">
+                  <div class="slide__caption glass">
+                    <h3>Ночь в дюнах Сахары</h3>
+                    <p class="slide__text">
+                      Караван на закате, костёр у лагеря и рассвет на гребне
+                      дюны Мерзуги.
+                    </p>
+                    <div class="slide__foot">
+                      <span class="slide__price">от 890 € · 6 дней</span
+                      ><a class="btn btn--primary btn--sm" href="catalog.html"
+                        >В каталог</a
+                      >
+                    </div>
+                  </div>
+                </li>
+                <li class="slide" aria-label="5 из 5">
+                  <img class="slide__img" src="assets/img/slide-5.webp" alt="Вид сверху на атолл с бирюзовой лагуной и песчаными отмелями" width="1600" height="900" loading="lazy">
+                  <div class="slide__caption glass">
+                    <h3>Мальдивы без суеты</h3>
+                    <p class="slide__text">
+                      Небольшой остров, снорклинг с манта-скатами и бунгало на
+                      воде.
+                    </p>
+                    <div class="slide__foot">
+                      <span class="slide__price">от 2 790 € · 8 дней</span
+                      ><a class="btn btn--primary btn--sm" href="catalog.html"
+                        >В каталог</a
+                      >
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="slider__dots">
+              <button
+                class="slider__dot is-active"
+                type="button"
+                aria-label="Слайд 1"
+                aria-current="true"
+              ></button>
+              <button
+                class="slider__dot"
+                type="button"
+                aria-label="Слайд 2"
+              ></button>
+              <button
+                class="slider__dot"
+                type="button"
+                aria-label="Слайд 3"
+              ></button>
+              <button
+                class="slider__dot"
+                type="button"
+                aria-label="Слайд 4"
+              ></button>
+              <button
+                class="slider__dot"
+                type="button"
+                aria-label="Слайд 5"
+              ></button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="about" aria-labelledby="about-title">
+        <div class="container about">
+          <div class="about__day">
+            <h2 id="about-title">Как проходит день</h2>
+            <p class="section__lead">
+              Расписание примерное: погода и настроение группы важнее часов.
+            </p>
+            <ol class="day">
+              <li>
+                <time>07:30</time>
+                <div>
+                  <h3>Завтрак у хозяев</h3>
+                  <p>
+                    Вкусный чай, свежий завтрак. Обсуждаем погоду и решаем, куда
+                    идём.
+                  </p>
+                </div>
+              </li>
+              <li>
+                <time>09:00</time>
+                <div>
+                  <h3>Выходим</h3>
+                  <p>
+                    Три–пять часов пешком с остановками. Рюкзаки лёгкие, багаж
+                    едет отдельно.
+                  </p>
+                </div>
+              </li>
+              <li>
+                <time>13:30</time>
+                <div>
+                  <h3>Обед там, где застал вид</h3>
+                  <p>
+                    Проводник достаёт термос и то, что утром купили на местном
+                    рынке.
+                  </p>
+                </div>
+              </li>
+              <li>
+                <time>16:00</time>
+                <div>
+                  <h3>Ваше время</h3>
+                  <p>
+                    Баня, море, сон или ещё один холм. Никто не ограничивает
+                    вас, гуляйте по всей территории.
+                  </p>
+                </div>
+              </li>
+              <li>
+                <time>20:00</time>
+                <div>
+                  <h3>Общий ужин</h3>
+                  <p>Один длинный стол и вкусный ужин местной кухни.</p>
+                </div>
+              </li>
+            </ol>
+          </div>
+          <div class="about__side">
+            <figure class="shot">
+              <img src="assets/img/svaneti.webp" alt="Туманные зелёные хребты Сванетии в вечернем свете" width="720" height="900" loading="lazy">
+              <figcaption class="shot__cap">
+                <strong>Сванетия</strong
+                ><span>6:40, ещё никто не проснулся</span>
+              </figcaption>
+            </figure>
+            <figure class="shot shot--low">
+              <img src="assets/img/lofoten.webp" alt="Северное сияние над острыми вершинами Лофотенских островов" width="720" height="900" loading="lazy">
+              <figcaption class="shot__cap">
+                <strong>Лофотены</strong
+                ><span>третья ночь, сияние до утра</span>
+              </figcaption>
+            </figure>
+            <aside class="promise glass">
+              <h3>Что обещаем</h3>
+              <ul>
+                <li>Группа до восьми человек</li>
+                <li>Не больше трёх часов в дороге за день</li>
+                <li>Цена, в которой нет сюрпризов</li>
+              </ul>
+              <p class="note">
+                а солнце каждый день и wi-fi на перевале не обещаем
+              </p>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="section"
+        id="directions"
+        aria-labelledby="directions-title"
+      >
+        <div class="container">
+          <div class="section__head">
+            <div>
+              <h2 id="directions-title">Три настроения — тридцать маршрутов</h2>
+              <p class="section__lead">
+                Выберите, какого вида вам сейчас не хватает.
+              </p>
+            </div>
+          </div>
+          <div class="moods">
+            <a class="mood" href="catalog.html">
+              <img src="assets/img/dolomites.webp" alt="Розовый рассвет над острыми хребтами Доломитов" width="720" height="900" loading="lazy">
+              <div class="mood__panel">
+                <h3>Горы</h3>
+                <span class="mood__text"
+                  >Приюты, перевалы и вершины без гонки за рекордами.</span
+                >
+                <span class="mood__count">10 маршрутов</span>
+              </div>
+            </a>
+            <a class="mood" href="catalog.html">
+              <img src="assets/img/santorini.webp" alt="Белые дома на утёсе над синим морем на закате" width="720" height="900" loading="lazy">
+              <div class="mood__panel">
+                <h3>Море</h3>
+                <span class="mood__text"
+                  >Бухты, яхты и вода, в которую хочется возвращаться.</span
+                >
+                <span class="mood__count">10 маршрутов</span>
+              </div>
+            </a>
+            <a class="mood" href="catalog.html">
+              <img src="assets/img/sahara.webp" alt="Золотые дюны Сахары на закате" width="720" height="900" loading="lazy">
+              <div class="mood__panel">
+                <h3>Край света</h3>
+                <span class="mood__text"
+                  >Пустыни, ледники и небо, полное звёзд и сияния.</span
+                >
+                <span class="mood__count">10 маршрутов</span>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="reviews" aria-labelledby="reviews-title">
+        <div class="container">
+          <div class="reviews">
+            <div class="reviews__intro glass">
+              <h2 id="reviews-title">Что говорят путешественники</h2>
+              <p class="section__lead">
+                Отзывы приходят после возвращения, мы ничего не убираем и не
+                редактируем.
+              </p>
+              <div class="rating">
+                <span class="rating__num">4,9</span>
+                <span class="rating__info"
+                  ><span
+                    class="review__stars"
+                    role="img"
+                    ><span class="on"
+                      ><svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path
+                          d="M12 2.5l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.6 5.9 21.1l1.4-6.8L2.2 9.6l6.9-.8z"
+                        /></svg></span
+                    ><span class="on"
+                      ><svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path
+                          d="M12 2.5l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.6 5.9 21.1l1.4-6.8L2.2 9.6l6.9-.8z"
+                        /></svg></span
+                    ><span class="on"
+                      ><svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path
+                          d="M12 2.5l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.6 5.9 21.1l1.4-6.8L2.2 9.6l6.9-.8z"
+                        /></svg></span
+                    ><span class="on"
+                      ><svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path
+                          d="M12 2.5l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.6 5.9 21.1l1.4-6.8L2.2 9.6l6.9-.8z"
+                        /></svg></span
+                    ><span class="on"
+                      ><svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path
+                          d="M12 2.5l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.6 5.9 21.1l1.4-6.8L2.2 9.6l6.9-.8z"
+                        /></svg></span></span
+                  >средняя оценка по 186 отзывам</span
+                >
+              </div>
+            </div>
+            <div class="reviews__grid">
+              <figure class="review glass">
+                <div class="review__top">
+                  <span
+                    class="review__stars"
+                    role="img"
+                    aria-label="Оценка 5 из 5"
+                    ><span class="on"
+                      ><svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path
+                          d="M12 2.5l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.6 5.9 21.1l1.4-6.8L2.2 9.6l6.9-.8z"
+                        /></svg></span
+                    ><span class="on"
+                      ><svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path
+                          d="M12 2.5l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.6 5.9 21.1l1.4-6.8L2.2 9.6l6.9-.8z"
+                        /></svg></span
+                    ><span class="on"
+                      ><svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path
+                          d="M12 2.5l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.6 5.9 21.1l1.4-6.8L2.2 9.6l6.9-.8z"
+                        /></svg></span
+                    ><span class="on"
+                      ><svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path
+                          d="M12 2.5l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.6 5.9 21.1l1.4-6.8L2.2 9.6l6.9-.8z"
+                        /></svg></span
+                    ><span class="on"
+                      ><svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path
+                          d="M12 2.5l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.6 5.9 21.1l1.4-6.8L2.2 9.6l6.9-.8z"
+                        /></svg></span></span
+                  ><span class="chip">Лофотены</span>
+                </div>
+                <blockquote class="review__quote">
+                  <p>
+                    Лофотены в октябре: сияние видели три ночи из четырёх.
+                    Проводник знал, куда ехать, когда облака закрывали небо, и
+                    никто нас не торопил.
+                  </p>
+                </blockquote>
+                <figcaption class="review__author">
+                  <span class="avatar" aria-hidden="true">АК</span
+                  ><span><strong>Анна К.</strong>октябрь 2025</span>
+                </figcaption>
+              </figure>
+              <figure class="review glass">
+                <div class="review__top">
+                  <span
+                    class="review__stars"
+                    role="img"
+                    aria-label="Оценка 5 из 5"
+                    ><span class="on"
+                      ><svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path
+                          d="M12 2.5l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.6 5.9 21.1l1.4-6.8L2.2 9.6l6.9-.8z"
+                        /></svg></span
+                    ><span class="on"
+                      ><svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path
+                          d="M12 2.5l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.6 5.9 21.1l1.4-6.8L2.2 9.6l6.9-.8z"
+                        /></svg></span
+                    ><span class="on"
+                      ><svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path
+                          d="M12 2.5l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.6 5.9 21.1l1.4-6.8L2.2 9.6l6.9-.8z"
+                        /></svg></span
+                    ><span class="on"
+                      ><svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path
+                          d="M12 2.5l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.6 5.9 21.1l1.4-6.8L2.2 9.6l6.9-.8z"
+                        /></svg></span
+                    ><span class="on"
+                      ><svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path
+                          d="M12 2.5l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.6 5.9 21.1l1.4-6.8L2.2 9.6l6.9-.8z"
+                        /></svg></span></span
+                  ><span class="chip">Доломиты</span>
+                </div>
+                <blockquote class="review__quote">
+                  <p>
+                    Впервые поехал в горы с группой и не пожалел. Темп
+                    спокойный, багаж везут на машине, а вечером все сидят за
+                    одним столом.
+                  </p>
+                </blockquote>
+                <figcaption class="review__author">
+                  <span class="avatar" aria-hidden="true">МР</span
+                  ><span><strong>Михаил Р.</strong>июль 2025</span>
+                </figcaption>
+              </figure>
+              <figure class="review glass">
+                <div class="review__top">
+                  <span
+                    class="review__stars"
+                    role="img"
+                    aria-label="Оценка 4 из 5"
+                    ><span class="on"
+                      ><svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path
+                          d="M12 2.5l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.6 5.9 21.1l1.4-6.8L2.2 9.6l6.9-.8z"
+                        /></svg></span
+                    ><span class="on"
+                      ><svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path
+                          d="M12 2.5l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.6 5.9 21.1l1.4-6.8L2.2 9.6l6.9-.8z"
+                        /></svg></span
+                    ><span class="on"
+                      ><svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path
+                          d="M12 2.5l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.6 5.9 21.1l1.4-6.8L2.2 9.6l6.9-.8z"
+                        /></svg></span
+                    ><span class="on"
+                      ><svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path
+                          d="M12 2.5l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.6 5.9 21.1l1.4-6.8L2.2 9.6l6.9-.8z"
+                        /></svg></span
+                    ><span class=""
+                      ><svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path
+                          d="M12 2.5l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.6 5.9 21.1l1.4-6.8L2.2 9.6l6.9-.8z"
+                        /></svg></span></span
+                  ><span class="chip">Сахара</span>
+                </div>
+                <blockquote class="review__quote">
+                  <p>
+                    Ночь в дюнах — лучшее, что было в поездке. Из минусов: в
+                    лагере ночью холодно. Проводник предупредил заранее, но я
+                    всё равно замёрз. Куртку берите тёплую.
+                  </p>
+                </blockquote>
+                <figcaption class="review__author">
+                  <span class="avatar" aria-hidden="true">ДВ</span
+                  ><span><strong>Дмитрий В.</strong>ноябрь 2025</span>
+                </figcaption>
+              </figure>
+              <figure class="review glass">
+                <div class="review__top">
+                  <span
+                    class="review__stars"
+                    role="img"
+                    aria-label="Оценка 5 из 5"
+                    ><span class="on"
+                      ><svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path
+                          d="M12 2.5l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.6 5.9 21.1l1.4-6.8L2.2 9.6l6.9-.8z"
+                        /></svg></span
+                    ><span class="on"
+                      ><svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path
+                          d="M12 2.5l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.6 5.9 21.1l1.4-6.8L2.2 9.6l6.9-.8z"
+                        /></svg></span
+                    ><span class="on"
+                      ><svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path
+                          d="M12 2.5l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.6 5.9 21.1l1.4-6.8L2.2 9.6l6.9-.8z"
+                        /></svg></span
+                    ><span class="on"
+                      ><svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path
+                          d="M12 2.5l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.6 5.9 21.1l1.4-6.8L2.2 9.6l6.9-.8z"
+                        /></svg></span
+                    ><span class="on"
+                      ><svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path
+                          d="M12 2.5l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.6 5.9 21.1l1.4-6.8L2.2 9.6l6.9-.8z"
+                        /></svg></span></span
+                  ><span class="chip">Мальдивы</span>
+                </div>
+                <blockquote class="review__quote">
+                  <p>
+                    Понравилось, что цена понятна сразу: выбрала виллу и день на
+                    яхте, сумма пересчиталась тут же. Никаких сюрпризов после.
+                  </p>
+                </blockquote>
+                <figcaption class="review__author">
+                  <span class="avatar" aria-hidden="true">ЕС</span
+                  ><span><strong>Елена С.</strong>февраль 2026</span>
+                </figcaption>
+              </figure>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="contact" aria-labelledby="contact-title">
+        <div class="container">
+          <div class="cta">
+            <img src="assets/img/slide-4.webp" alt="" width="1600" height="900" loading="lazy">
+            <div class="cta__panel glass">
+              <h2 id="contact-title">Не знаете, куда поехать?</h2>
+              <p>
+                Расскажите, сколько у вас дней и какой вид вы хотите видеть из
+                окна. Подберём маршрут и ответим в течение суток.
+              </p>
+              <div class="cta__actions">
+                <a
+                  class="btn btn--primary"
+                  href="https://t.me/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Написать в Telegram</a
+                >
+                <a class="btn btn--glass" href="tel:+3375000000000">Позвонить</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer__panel glass">
+          <div class="footer__grid">
+            <div>
+              <a class="logo" href="index.html" aria-label="drift — на главную"
+                ><svg viewBox="0 0 32 32" aria-hidden="true">
+                  <circle cx="16" cy="16" r="15" fill="var(--accent)" />
+                  <path d="M6 22l6-9 4 5 3-4 7 8z" fill="var(--accent-ink)" />
+                  <circle
+                    cx="21.5"
+                    cy="10"
+                    r="2"
+                    fill="var(--accent-ink)"
+                  /></svg><span>drift</span></a>
+              <p class="footer__about">
+                Небольшие группы, местные проводники и маршруты без спешки.
+                Шесть — четырнадцать дней, один большой вид каждый день.
+              </p>
+            </div>
+            <div>
+              <h2 class="footer__title">Контакты</h2>
+              <ul class="footer__list">
+                <li><a href="tel:+375000000000">+375 00 000-00-00</a></li>
+                <li>
+                  <a href="mailto:example@example.com">example@example.com</a>
+                </li>
+                <li>
+                  <a
+                    href="https://www.google.com/maps/place/%D0%9C%D0%B8%D0%BD%D1%81%D0%BA,+%D0%9C%D0%B8%D0%BD%D1%81%D0%BA%D0%B0%D1%8F+%D0%BE%D0%B1%D0%BB%D0%B0%D1%81%D1%82%D1%8C/@53.8847295,27.42856,11z/data=!3m1!4b1!4m6!3m5!1s0x46dbcfd35b1e6ad3:0xb61b853ddb570d9!8m2!3d53.9006011!4d27.558972!16zL20vMGRseGo?entry=ttu&g_ep=EgoyMDI2MDkxNi4wIKXMDSoASAFQAw%3D%3D"
+                    target="_blank"
+                    rel="noopener noreferrer">Minsk, Belarus</a>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h2 class="footer__title">Разделы</h2>
+              <ul class="footer__list">
+                <li><a href="#routes">Маршруты сезона</a></li>
+                <li><a href="#about">Как мы путешествуем</a></li>
+                <li><a href="#contact">Написать нам</a></li>
+                <li><a href="catalog.html">Каталог маршрутов</a></li>
+              </ul>
+            </div>
+            <div>
+              <h2 class="footer__title">Мы в сети</h2>
+              <ul class="footer__list">
+                <li>
+                  <a
+                    href="https://t.me/"
+                    target="_blank"
+                    rel="noopener noreferrer">Telegram</a>
+                </li>
+                <li>
+                  <a
+                    href="https://www.instagram.com/"
+                    target="_blank"
+                    rel="noopener noreferrer">Instagram</a>
+                </li>
+                <li>
+                  <a
+                    href="https://www.youtube.com/"
+                    target="_blank"
+                    rel="noopener noreferrer">YouTube</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="footer__bottom">
+            <p>© 2026 drift. Учебный проект.</p>
+            <div class="footer__project">
+              <a
+                href="https://github.com/gor-anastasii"
+                target="_blank"
+                rel="noopener noreferrer">GitHub</a>
+              <a
+                class="footer__rs"
+                href="https://rs.school/courses/javascript"
+                target="_blank"
+                rel="noopener noreferrer">
+                <img src="https://raw.githubusercontent.com/rolling-scopes-school/tasks/master/fullstack-engineering/tasks/cv/assets/rs-school-logo.svg" alt="RSSchool logo" width="52" height="26">
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/theme.js"></script>
+  </body>
+</html>
