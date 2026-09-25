@@ -34,23 +34,25 @@
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/components.css">
     <link rel="stylesheet" href="css/pages.css">
+    <link rel="stylesheet" href="css/part2.css">
   </head>
   <body>
     <header class="site-header">
       <div class="site-header__bar">
-        <a class="logo" href="index.html"
-          ><svg viewBox="0 0 32 32" aria-hidden="true">
+        <a class="logo" href="index.html">
+          <svg viewBox="0 0 32 32" aria-hidden="true">
             <circle cx="16" cy="16" r="15" fill="var(--accent)" />
             <path d="M6 22l6-9 4 5 3-4 7 8z" fill="var(--accent-ink)" />
             <circle cx="21.5" cy="10" r="2" fill="var(--accent-ink)" />
           </svg>
-          <span>drift</span></a
-        >
+          <span>drift</span>
+        </a>
         <nav class="nav" id="site-nav">
           <ul class="nav__list">
             <li><a class="nav__link" href="index.html#routes">Маршруты</a></li>
-            <li><a class="nav__link" href="index.html#about">О нас</a></li>
+            <li><a class="nav__link" href="index.html#about">Как проходит день</a></li>
             <li><a class="nav__link" href="index.html#reviews">Отзывы</a></li>
+            <li><a class="nav__link" href="index.html#contact">Контакты</a></li>
             <li>
               <a class="nav__link" href="catalog.html" aria-current="page">Каталог</a>
             </li>
@@ -96,7 +98,6 @@
           <button
             class="burger"
             type="button"
-            aria-label="Открыть меню"
             aria-expanded="false"
             aria-controls="site-nav"
           >
@@ -122,208 +123,18 @@
       </section>
 
       <section class="catalog" aria-labelledby="catalog-list-title">
-        <div class="container">
-          <h2 class="visually-hidden" id="catalog-list-title">
-            Список маршрутов
-          </h2>
-          <div class="catalog__toolbar">
-            <div class="tabs" role="group" aria-label="Категории маршрутов">
-              <button class="tab is-active" type="button" aria-pressed="true">
-                Все <span class="tab__count">30</span>
-              </button>
-              <button class="tab" type="button" aria-pressed="false">
-                Горы <span class="tab__count">10</span>
-              </button>
-              <button class="tab" type="button" aria-pressed="false">
-                Море <span class="tab__count">10</span>
-              </button>
-              <button class="tab" type="button" aria-pressed="false">
-                Край света <span class="tab__count">10</span>
-              </button>
-            </div>
-            <p class="catalog__status" id="catalog-status" aria-live="polite">
-              Показано 8 из 30
-            </p>
-          </div>
-          <ul class="cards">
-            <li>
-              <article class="card">
-                <img class="card__img" src="assets/img/dolomites.webp" alt="Розовый рассвет над острыми хребтами Доломитов" width="720" height="900" loading="lazy">
-                <div class="card__panel">
-                  <p class="card__place">Италия</p>
-                  <h3 class="card__title">Доломиты</h3>
-                  <p class="card__text">
-                    Розовые скалы, альпийские луга и ночёвки в горных приютах.
-                  </p>
-                  <div class="card__meta">
-                    <span class="chip">7 дней</span
-                    ><span class="card__price">от 1 290 €</span>
-                  </div>
-                </div>
-                <button
-                  class="card__open"
-                  type="button"
-                  data-id="dolomites"
-                ></button>
-              </article>
-            </li>
-            <li>
-              <article class="card">
-                <img class="card__img" src="assets/img/patagonia.webp" alt="Тёмные гранитные башни Патагонии над озером в лучах заката" width="720" height="900" loading="lazy">
-                <div class="card__panel">
-                  <p class="card__place">Чили и Аргентина</p>
-                  <h3 class="card__title">Патагония</h3>
-                  <p class="card__text">
-                    Гранитные башни Торрес-дель-Пайне и ледники, до которых
-                    можно дойти пешком.
-                  </p>
-                  <div class="card__meta">
-                    <span class="chip">12 дней</span
-                    ><span class="card__price">от 2 890 €</span>
-                  </div>
-                </div>
-                <button
-                  class="card__open"
-                  type="button"
-                  data-id="patagonia"
-                ></button>
-              </article>
-            </li>
-            <li>
-              <article class="card">
-                <img class="card__img" src="assets/img/zermatt.webp" alt="Заснеженный Маттерхорн под ярким солнцем" width="720" height="900" loading="lazy">
-                <div class="card__panel">
-                  <p class="card__place">Швейцария</p>
-                  <h3 class="card__title">Церматт</h3>
-                  <p class="card__text">
-                    Тропа под Маттерхорном, панорамные поезда и озёра-зеркала.
-                  </p>
-                  <div class="card__meta">
-                    <span class="chip">6 дней</span
-                    ><span class="card__price">от 1 650 €</span>
-                  </div>
-                </div>
-                <button
-                  class="card__open"
-                  type="button"
-                  data-id="zermatt"
-                ></button>
-              </article>
-            </li>
-            <li>
-              <article class="card">
-                <img class="card__img" src="assets/img/tianshan.webp" alt="Ледяные вершины Тянь-Шаня над спокойным озером" width="720" height="900" loading="lazy">
-                <div class="card__panel">
-                  <p class="card__place">Кыргызстан</p>
-                  <h3 class="card__title">Тянь-Шань</h3>
-                  <p class="card__text">
-                    Озеро Сон-Куль, юрты и лошади: неделя без сигнала сети.
-                  </p>
-                  <div class="card__meta">
-                    <span class="chip">9 дней</span
-                    ><span class="card__price">от 1 190 €</span>
-                  </div>
-                </div>
-                <button
-                  class="card__open"
-                  type="button"
-                  data-id="tianshan"
-                ></button>
-              </article>
-            </li>
-            <li>
-              <article class="card">
-                <img class="card__img" src="assets/img/annapurna.webp" alt="Снежная вершина Аннапурны в оранжевом свете рассвета" width="720" height="900" loading="lazy">
-                <div class="card__panel">
-                  <p class="card__place">Непал</p>
-                  <h3 class="card__title">Аннапурна</h3>
-                  <p class="card__text">
-                    Классический трек вокруг массива: перевал Торонг-Ла и чайные
-                    домики.
-                  </p>
-                  <div class="card__meta">
-                    <span class="chip">14 дней</span
-                    ><span class="card__price">от 2 190 €</span>
-                  </div>
-                </div>
-                <button
-                  class="card__open"
-                  type="button"
-                  data-id="annapurna"
-                ></button>
-              </article>
-            </li>
-            <li>
-              <article class="card">
-                <img class="card__img" src="assets/img/svaneti.webp" alt="Туманные зелёные хребты Сванетии в вечернем свете" width="720" height="900" loading="lazy">
-                <div class="card__panel">
-                  <p class="card__place">Грузия</p>
-                  <h3 class="card__title">Сванетия</h3>
-                  <p class="card__text">
-                    Каменные башни, ледник Ушба и хачапури в семейных гостевых
-                    домах.
-                  </p>
-                  <div class="card__meta">
-                    <span class="chip">8 дней</span
-                    ><span class="card__price">от 890 €</span>
-                  </div>
-                </div>
-                <button
-                  class="card__open"
-                  type="button"
-                  data-id="svaneti"
-                ></button>
-              </article>
-            </li>
-            <li>
-              <article class="card">
-                <img class="card__img" src="assets/img/pyrenees.webp" alt="Зелёные холмы Пиренеев в мягком утреннем свете" width="720" height="900" loading="lazy">
-                <div class="card__panel">
-                  <p class="card__place">Испания</p>
-                  <h3 class="card__title">Пиренеи</h3>
-                  <p class="card__text">
-                    Долина Ордеса, водопады и деревни из светлого камня.
-                  </p>
-                  <div class="card__meta">
-                    <span class="chip">6 дней</span
-                    ><span class="card__price">от 980 €</span>
-                  </div>
-                </div>
-                <button
-                  class="card__open"
-                  type="button"
-                  data-id="pyrenees"
-                ></button>
-              </article>
-            </li>
-            <li>
-              <article class="card">
-                <img class="card__img" src="assets/img/nzalps.webp" alt="Снежные Южные Альпы над бирюзовым озером" width="720" height="900" loading="lazy">
-                <div class="card__panel">
-                  <p class="card__place">Новая Зеландия</p>
-                  <h3 class="card__title">Южные Альпы</h3>
-                  <p class="card__text">
-                    Озёра цвета бирюзы, ледник Фокс и дороги, где овец больше,
-                    чем машин.
-                  </p>
-                  <div class="card__meta">
-                    <span class="chip">14 дней</span
-                    ><span class="card__price">от 3 490 €</span>
-                  </div>
-                </div>
-                <button
-                  class="card__open"
-                  type="button"
-                  data-id="nzalps"
-                ></button>
-              </article>
-            </li>
-          </ul>
-          <div class="catalog__more">
-            <button class="btn btn--glass" type="button">Показать ещё</button>
-          </div>
+      <div class="container">
+        <h2 class="visually-hidden" id="catalog-list-title">Список маршрутов</h2>
+        <div class="catalog__toolbar">
+          <div class="tabs" id="tabs" role="group" aria-label="Категории маршрутов"></div>
+          <p class="catalog__status" id="catalog-status" aria-live="polite">Загружаем маршруты…</p>
         </div>
-      </section>
+        <ul class="cards" id="cards"></ul>
+        <div class="catalog__more">
+          <button class="btn btn--glass" type="button" id="show-more" hidden>Показать ещё</button>
+        </div>
+      </div>
+    </section>
     </main>
 
     <footer class="site-footer">
@@ -405,7 +216,7 @@
                 href="https://rs.school/courses/javascript"
                 target="_blank"
                 rel="noopener noreferrer">
-                <img src="https://raw.githubusercontent.com/rolling-scopes-school/tasks/master/fullstack-engineering/tasks/cv/assets/rs-school-logo.svg" alt="RSSchool logo" width="52" height="26">
+                <img src="https://raw.githubusercontent.com/rolling-scopes-school/tasks/master/fullstack-engineering/tasks/cv/assets/rs-school-logo.svg" alt="RS School логотип" width="52" height="26">
               </a>
             </div>
           </div>
@@ -413,6 +224,12 @@
       </div>
     </footer>
 
+    <script src="js/scroll-lock.js"></script>
     <script src="js/theme.js"></script>
+    <script src="js/burger.js"></script>
+    <script src="js/tours-data.js"></script>
+    <script src="js/weather.js"></script>
+    <script src="js/modal.js"></script>
+    <script src="js/catalog.js"></script>
   </body>
 </html>

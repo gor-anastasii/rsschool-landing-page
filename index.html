@@ -34,6 +34,7 @@
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/components.css">
     <link rel="stylesheet" href="css/pages.css">
+    <link rel="stylesheet" href="css/part2.css">
   </head>
   <body>
     <header class="site-header">
@@ -46,11 +47,12 @@
           </svg>
           <span>drift</span>
         </a>
-        <nav class="nav" id="site-nav" aria-label="Основная навигация">
+        <nav class="nav" id="site-nav">
           <ul class="nav__list">
             <li><a class="nav__link" href="#routes">Маршруты</a></li>
-            <li><a class="nav__link" href="#about">О нас</a></li>
+            <li><a class="nav__link" href="#about">Как проходит день</a></li>
             <li><a class="nav__link" href="#reviews">Отзывы</a></li>
+             <li><a class="nav__link" href="#contact">Контакты</a></li>
             <li><a class="nav__link" href="catalog.html">Каталог</a></li>
           </ul>
         </nav>
@@ -94,7 +96,6 @@
           <button
             class="burger"
             type="button"
-            aria-label="Открыть меню"
             aria-expanded="false"
             aria-controls="site-nav"
           >
@@ -140,7 +141,6 @@
             <a
               class="ticket glass"
               href="catalog.html"
-              aria-label="Ближайший выезд: Лофотены, 5 октября, осталось 4 места"
             >
               <span class="ticket__main">
                 <span class="ticket__label">Ближайший выезд</span>
@@ -158,182 +158,74 @@
         </div>
       </section>
 
-      <section
-        class="section routes"
-        id="routes"
-        aria-labelledby="routes-title"
-      >
-        <div class="container">
-          <div class="section__head">
-            <div>
-              <h2 id="routes-title">Маршруты сезона</h2>
-              <p class="section__lead">
-                Пять выездов, на которые ещё есть места.
-              </p>
-            </div>
-            <div class="slider__controls">
-              <button
-                class="icon-btn"
-                type="button"
-                data-slider-prev
-                aria-label="Предыдущий маршрут"
-              >
-                <svg
-                  class=""
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  aria-hidden="true"
-                >
-                  <polyline points="15 18 9 12 15 6" />
-                </svg>
-              </button>
-              <button
-                class="icon-btn"
-                type="button"
-                data-slider-next
-                aria-label="Следующий маршрут"
-              >
-                <svg
-                  class=""
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  aria-hidden="true"
-                >
-                  <polyline points="9 18 15 12 9 6" />
-                </svg>
-              </button>
-            </div>
+      <section class="section routes" id="routes" aria-labelledby="routes-title">
+      <div class="container">
+        <div class="section__head">
+          <div>
+            <h2 id="routes-title">Маршруты сезона</h2>
+            <p class="section__lead">Пять выездов, на которые ещё есть места.</p>
           </div>
-          <div
-            class="slider"
-            data-slider
-            role="region"
-            aria-roledescription="карусель"
-            aria-label="Маршруты сезона"
-          >
-            <div class="slider__viewport">
-              <ul class="slider__track">
-                <li class="slide" aria-label="1 из 5">
-                  <img class="slide__img" src="assets/img/slide-1.webp" alt="Северное сияние над тёмными хребтами и озером" width="1600" height="900">
-                  <div class="slide__caption glass">
-                    <h3>Северное сияние без толп</h3>
-                    <p class="slide__text">
-                      Кольцевая дорога, ледниковые лагуны и вечерние выезды за
-                      сиянием. Осталось три места на октябрь.
-                    </p>
-                    <div class="slide__foot">
-                      <span class="slide__price">от 2 290 € · 8 дней</span
-                      ><a class="btn btn--primary btn--sm" href="catalog.html"
-                        >В каталог</a
-                      >
-                    </div>
-                  </div>
-                </li>
-                <li class="slide" aria-label="2 из 5">
-                  <img class="slide__img" src="assets/img/slide-2.webp" alt="Белые дома на утёсе над синим морем на закате" width="1600" height="900" loading="lazy">
-                  <div class="slide__caption glass">
-                    <h3>Закат над кальдерой</h3>
-                    <p class="slide__text">
-                      Шесть дней в тихих деревнях острова, дегустации на
-                      вулканической почве и парусник вокруг кальдеры.
-                    </p>
-                    <div class="slide__foot">
-                      <span class="slide__price">от 1 190 € · 6 дней</span
-                      ><a class="btn btn--primary btn--sm" href="catalog.html"
-                        >В каталог</a
-                      >
-                    </div>
-                  </div>
-                </li>
-                <li class="slide" aria-label="3 из 5">
-                  <img class="slide__img" src="assets/img/slide-3.webp" alt="Розовый рассвет над острыми хребтами Доломитов" width="1600" height="900" loading="lazy">
-                  <div class="slide__caption glass">
-                    <h3>Розовые скалы Доломитов</h3>
-                    <p class="slide__text">
-                      Идём от приюта к приюту вокруг Трёх Зубцов Лаваредо. Багаж
-                      едет на машине.
-                    </p>
-                    <div class="slide__foot">
-                      <span class="slide__price">от 1 290 € · 7 дней</span
-                      ><a class="btn btn--primary btn--sm" href="catalog.html"
-                        >В каталог</a
-                      >
-                    </div>
-                  </div>
-                </li>
-                <li class="slide" aria-label="4 из 5">
-                  <img class="slide__img" src="assets/img/slide-4.webp" alt="Золотые дюны Сахары на закате" width="1600" height="900" loading="lazy">
-                  <div class="slide__caption glass">
-                    <h3>Ночь в дюнах Сахары</h3>
-                    <p class="slide__text">
-                      Караван на закате, костёр у лагеря и рассвет на гребне
-                      дюны Мерзуги.
-                    </p>
-                    <div class="slide__foot">
-                      <span class="slide__price">от 890 € · 6 дней</span
-                      ><a class="btn btn--primary btn--sm" href="catalog.html"
-                        >В каталог</a
-                      >
-                    </div>
-                  </div>
-                </li>
-                <li class="slide" aria-label="5 из 5">
-                  <img class="slide__img" src="assets/img/slide-5.webp" alt="Вид сверху на атолл с бирюзовой лагуной и песчаными отмелями" width="1600" height="900" loading="lazy">
-                  <div class="slide__caption glass">
-                    <h3>Мальдивы без суеты</h3>
-                    <p class="slide__text">
-                      Небольшой остров, снорклинг с манта-скатами и бунгало на
-                      воде.
-                    </p>
-                    <div class="slide__foot">
-                      <span class="slide__price">от 2 790 € · 8 дней</span
-                      ><a class="btn btn--primary btn--sm" href="catalog.html"
-                        >В каталог</a
-                      >
-                    </div>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="slider__dots">
-              <button
-                class="slider__dot is-active"
-                type="button"
-                aria-label="Слайд 1"
-                aria-current="true"
-              ></button>
-              <button
-                class="slider__dot"
-                type="button"
-                aria-label="Слайд 2"
-              ></button>
-              <button
-                class="slider__dot"
-                type="button"
-                aria-label="Слайд 3"
-              ></button>
-              <button
-                class="slider__dot"
-                type="button"
-                aria-label="Слайд 4"
-              ></button>
-              <button
-                class="slider__dot"
-                type="button"
-                aria-label="Слайд 5"
-              ></button>
-            </div>
+          <div class="slider__controls">
+            <button class="icon-btn" type="button" data-slider-prev aria-label="Предыдущий маршрут"><svg class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg></button>
+            <button class="icon-btn" type="button" data-slider-next aria-label="Следующий маршрут"><svg class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></button>
           </div>
         </div>
-      </section>
+        <div class="slider" data-slider role="region" aria-roledescription="карусель" aria-label="Маршруты сезона">
+          <div class="slider__viewport">
+            <ul class="slider__track">
+            <li class="slide" aria-label="1 из 5">
+              <img class="slide__img" src="assets/img/slide-1.webp" alt="Северное сияние над тёмными хребтами и озером" width="1600" height="900">
+              <div class="slide__caption glass">
+                <h3>Северное сияние без толп</h3>
+                <p class="slide__text">Кольцевая дорога, ледниковые лагуны и вечерние выезды за сиянием. Осталось три места на октябрь.</p>
+                <div class="slide__foot"><span class="slide__price">от 2 290 € · 8 дней</span><a class="btn btn--primary btn--sm" href="catalog.html">В каталог</a></div>
+              </div>
+            </li>
+            <li class="slide" aria-label="2 из 5">
+              <img class="slide__img" src="assets/img/slide-2.webp" alt="Белые дома на утёсе над синим морем на закате" width="1600" height="900" loading="lazy">
+              <div class="slide__caption glass">
+                <h3>Закат над кальдерой</h3>
+                <p class="slide__text">Шесть дней в тихих деревнях острова, дегустации на вулканической почве и парусник вокруг кальдеры.</p>
+                <div class="slide__foot"><span class="slide__price">от 1 190 € · 6 дней</span><a class="btn btn--primary btn--sm" href="catalog.html">В каталог</a></div>
+              </div>
+            </li>
+            <li class="slide" aria-label="3 из 5">
+              <img class="slide__img" src="assets/img/slide-3.webp" alt="Розовый рассвет над острыми хребтами Доломитов" width="1600" height="900" loading="lazy">
+              <div class="slide__caption glass">
+                <h3>Розовые скалы Доломитов</h3>
+                <p class="slide__text">Идём от приюта к приюту вокруг Трёх Зубцов Лаваредо. Багаж едет на машине.</p>
+                <div class="slide__foot"><span class="slide__price">от 1 290 € · 7 дней</span><a class="btn btn--primary btn--sm" href="catalog.html">В каталог</a></div>
+              </div>
+            </li>
+            <li class="slide" aria-label="4 из 5">
+              <img class="slide__img" src="assets/img/slide-4.webp" alt="Золотые дюны Сахары на закате" width="1600" height="900" loading="lazy">
+              <div class="slide__caption glass">
+                <h3>Ночь в дюнах Сахары</h3>
+                <p class="slide__text">Караван на закате, костёр у лагеря и рассвет на гребне дюны Мерзуги.</p>
+                <div class="slide__foot"><span class="slide__price">от 890 € · 6 дней</span><a class="btn btn--primary btn--sm" href="catalog.html">В каталог</a></div>
+              </div>
+            </li>
+            <li class="slide" aria-label="5 из 5">
+              <img class="slide__img" src="assets/img/slide-5.webp" alt="Вид сверху на атолл с бирюзовой лагуной и песчаными отмелями" width="1600" height="900" loading="lazy">
+              <div class="slide__caption glass">
+                <h3>Мальдивы без суеты</h3>
+                <p class="slide__text">Небольшой остров, снорклинг с манта-скатами и бунгало на воде.</p>
+                <div class="slide__foot"><span class="slide__price">от 2 790 € · 8 дней</span><a class="btn btn--primary btn--sm" href="catalog.html">В каталог</a></div>
+              </div>
+            </li>
+            </ul>
+          </div>
+          <div class="slider__dots">
+          <button class="slider__dot is-active" type="button" aria-label="Слайд 1" aria-current="true"></button>
+          <button class="slider__dot" type="button" aria-label="Слайд 2"></button>
+          <button class="slider__dot" type="button" aria-label="Слайд 3"></button>
+          <button class="slider__dot" type="button" aria-label="Слайд 4"></button>
+          <button class="slider__dot" type="button" aria-label="Слайд 5"></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
 
       <section class="section" id="about" aria-labelledby="about-title">
         <div class="container about">
@@ -419,6 +311,18 @@
               </p>
             </aside>
           </div>
+        </div>
+      </section>
+
+      <section class="section" id="weather" aria-labelledby="weather-title">
+        <div class="container">
+          <div class="section__head">
+            <div>
+              <h2 id="weather-title">Что за окном на маршрутах</h2>
+              <p class="section__lead">Погода прямо сейчас, данные Open-Meteo. Чтобы понимать, куда лучше ехать в этот раз, а куда позже.</p>
+            </div>
+          </div>
+          <ul class="weather glass" id="weather-list" aria-live="polite"></ul>
         </div>
       </section>
 
@@ -718,7 +622,7 @@
                   rel="noopener noreferrer"
                   >Написать в Telegram</a
                 >
-                <a class="btn btn--glass" href="tel:+3375000000000">Позвонить</a>
+                <a class="btn btn--glass" href="tel:+375000000000">Позвонить</a>
               </div>
             </div>
           </div>
@@ -806,7 +710,7 @@
                 href="https://rs.school/courses/javascript"
                 target="_blank"
                 rel="noopener noreferrer">
-                <img src="https://raw.githubusercontent.com/rolling-scopes-school/tasks/master/fullstack-engineering/tasks/cv/assets/rs-school-logo.svg" alt="RSSchool logo" width="52" height="26">
+                <img src="https://raw.githubusercontent.com/rolling-scopes-school/tasks/master/fullstack-engineering/tasks/cv/assets/rs-school-logo.svg" alt="RS School логотип" width="52" height="26">
               </a>
             </div>
           </div>
@@ -814,6 +718,11 @@
       </div>
     </footer>
 
+    <script src="js/scroll-lock.js"></script>
     <script src="js/theme.js"></script>
+    <script src="js/burger.js"></script>
+    <script src="js/slider.js"></script>
+    <script src="js/tours-data.js"></script>
+    <script src="js/weather.js"></script>
   </body>
 </html>
